@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nag_graph"
+    app:startDestination="@id/startTravelFragment">
+
+    <fragment
+        android:id="@+id/startTravelFragment"
+        android:name="stanevich.elizaveta.spbseeker.StartTravelFragment"
+        android:label="StartTravelFragment" >
+        <action
+            android:id="@+id/action_startTravelFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_startTravelFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="stanevich.elizaveta.spbseeker.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_authorizationFragment"
+            app:destination="@id/authorizationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="stanevich.elizaveta.spbseeker.MenuFragment"
+        android:label="MenuFragment" />
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="stanevich.elizaveta.spbseeker.RegistrationFragment"
+        android:label="RegistrationFragment" />
+    <fragment
+        android:id="@+id/authorizationFragment"
+        android:name="stanevich.elizaveta.spbseeker.AuthorizationFragment"
+        android:label="AuthorizationFragment" />
+</navigation>
