@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import stanevich.elizaveta.spbseeker.databinding.FragmentStartTravelBinding
 
 class StartTravelFragment : Fragment() {
 
@@ -13,6 +16,15 @@ class StartTravelFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        val binding = FragmentStartTravelBinding.inflate(inflater)
+
+        binding.apply {
+            tvStartTravel.setOnClickListener { view: View ->
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_startTravelFragment_to_loginFragment)
+            }
+
+            return binding.root
+        }
     }
 }

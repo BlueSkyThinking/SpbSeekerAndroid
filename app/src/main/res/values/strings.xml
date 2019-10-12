@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SpbSeeker</string>
+    <string name="text_entrance"><![CDATA[L O G I N ]]></string>
+    <string name="text_google_with_in">google with in</string>
+    <string name="text_login"><![CDATA[l o g i n ]]></string>
+    <string name="text_password"><![CDATA[p a s s w o r d]]></string>
+    <string name="text_forgot_password">Forgot Password</string>
+    <string name="text_new_account">New Account</string>
 </resources>

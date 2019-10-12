@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import stanevich.elizaveta.spbseeker.databinding.FragmentMenuBinding
 
 class MenuFragment : Fragment() {
 
@@ -13,6 +14,10 @@ class MenuFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+
+
+        val binding = FragmentMenuBinding.inflate(inflater)
+
+        return binding.root
     }
 }
