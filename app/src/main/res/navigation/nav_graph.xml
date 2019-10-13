@@ -44,6 +44,6 @@
         tools:layout="@layout/fragment_authorization"/>
     <fragment
         android:id="@+id/taskFragment"
-        android:name="stanevich.elizaveta.spbseeker.TaskFragment"
+        android:name="stanevich.elizaveta.spbseeker.task.TaskFragment"
         android:label="TaskFragment" />
 </navigation>

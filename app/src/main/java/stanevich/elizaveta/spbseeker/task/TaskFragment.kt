@@ -1,4 +1,4 @@
-package stanevich.elizaveta.spbseeker
+package stanevich.elizaveta.spbseeker.task
 
 import android.os.Bundle
 import android.view.LayoutInflater
