@@ -11,9 +11,17 @@ import kotlinx.coroutines.launch
 import stanevich.elizaveta.spbseeker.network.TaskApi
 import stanevich.elizaveta.spbseeker.network.TaskProperty
 
+enum class TaskApiStatus { LOADING, DONE, ERROR }
+
 class TaskViewModel(
     application: Application
 ) : AndroidViewModel(application) {
+
+
+    private val _status = MutableLiveData<TaskApiStatus>()
+
+    val status: LiveData<TaskApiStatus>
+        get() = _status
 
     private val _properties = MutableLiveData<TaskProperty>()
 
@@ -35,8 +43,16 @@ class TaskViewModel(
 
     private fun getTaskProperties() {
         coroutineScope.launch {
+            val listResult: TaskProperty
             val getPropertiesDeferred = TaskApi.retrofitService.getTask(133)
-            _properties.value = getPropertiesDeferred.await()
+            try {
+                _status.value = TaskApiStatus.LOADING
+                listResult = getPropertiesDeferred.await()
+                _status.value = TaskApiStatus.DONE
+                _properties.value = listResult
+            } catch (e: Exception) {
+                _status.value = TaskApiStatus.ERROR
+            }
         }
     }
 }
