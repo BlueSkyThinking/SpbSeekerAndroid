@@ -27,14 +27,18 @@
             android:id="@+id/action_loginFragment_to_authorizationFragment"
             app:destination="@id/authorizationFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_taskFragment"
-            app:destination="@id/taskFragment" />
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="stanevich.elizaveta.spbseeker.MenuFragment"
         android:label="MenuFragment"
-        tools:layout="@layout/fragment_menu"/>
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registrationFragment"
         android:name="stanevich.elizaveta.spbseeker.login.RegistrationFragment"
@@ -50,7 +54,7 @@
         android:name="stanevich.elizaveta.spbseeker.task.TaskFragment"
         android:label="TaskFragment" >
         <action
-            android:id="@+id/action_taskFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_taskFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
 </navigation>

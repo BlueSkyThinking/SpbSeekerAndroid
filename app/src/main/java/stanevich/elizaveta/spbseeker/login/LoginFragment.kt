@@ -22,7 +22,7 @@ class LoginFragment : Fragment() {
         binding.apply {
             fabButton.setOnClickListener { view: View ->
                 Navigation.findNavController(view)
-                    .navigate(R.id.action_loginFragment_to_taskFragment)
+                    .navigate(R.id.action_loginFragment_to_menuFragment)
             }
         }
 

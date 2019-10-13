@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import stanevich.elizaveta.spbseeker.databinding.FragmentMenuBinding
 
 class MenuFragment : Fragment() {
@@ -17,6 +18,13 @@ class MenuFragment : Fragment() {
 
 
         val binding = FragmentMenuBinding.inflate(inflater)
+
+        binding.apply {
+            imageview.setOnClickListener { view: View ->
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_menuFragment_to_taskFragment)
+            }
+        }
 
         return binding.root
     }

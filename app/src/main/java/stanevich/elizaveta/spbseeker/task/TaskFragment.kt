@@ -75,7 +75,7 @@ class TaskFragment : Fragment() {
         binding.apply {
             btnVectorBack.setOnClickListener { view: View ->
                 Navigation.findNavController(view)
-                    .navigate(R.id.action_taskFragment_to_loginFragment)
+                    .navigate(R.id.action_taskFragment_to_menuFragment)
             }
         }
 
