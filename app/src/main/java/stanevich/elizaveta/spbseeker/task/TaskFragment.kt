@@ -1,14 +1,67 @@
 package stanevich.elizaveta.spbseeker.task
 
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.komdosh.spbseeker.service.location.LocationCalculationService
+import com.komdosh.spbseeker.service.location.LocationService
+import kotlinx.android.synthetic.main.fragment_task.*
 import stanevich.elizaveta.spbseeker.databinding.FragmentTaskBinding
+import java.util.*
+import kotlin.concurrent.fixedRateTimer
 
 class TaskFragment : Fragment() {
+
+    private lateinit var locationService: LocationService
+    private lateinit var scheduler: Timer
+
+    private fun resolveResult(
+        minDist: Float,
+        lcs: LocationCalculationService,
+        center: Location,
+        currentLocation: Location
+    ) {
+
+    }
+
+    private fun changeIndicatorPosition(minDist: Float) {
+        val indicatorMargin = calculateIndicatorMargin(minDist)
+        // distanceText.text = getString(R.string.distanceText, minDist)
+
+        if (gradientRect.measuredWidth > indicatorMargin) {
+            val indicatorLayout = indicatorIcon.layoutParams as ConstraintLayout.LayoutParams
+            indicatorLayout.marginStart = indicatorMargin.toInt()
+            indicatorIcon.layoutParams = indicatorLayout
+        }
+    }
+
+    private fun calculateIndicatorMargin(minDist: Float): Float {
+        val thresholdDistance = 10000
+        var indicatorMargin = (thresholdDistance - minDist)
+
+        val metrics = getResources().getDisplayMetrics();
+
+        indicatorMargin = if (indicatorMargin < 0) 0.0f else indicatorMargin
+        indicatorMargin /= thresholdDistance
+        indicatorMargin *= gradientRect.measuredWidth
+        val minWidthMargin = metrics.densityDpi * 0.12
+        val maxWidthMargin = metrics.densityDpi * 2.34
+        indicatorMargin =
+            if (indicatorMargin < minWidthMargin) minWidthMargin.toFloat() else indicatorMargin
+        indicatorMargin =
+            if (indicatorMargin > maxWidthMargin) maxWidthMargin.toFloat() else indicatorMargin
+        return indicatorMargin
+    }
+
+
+    private fun coordinate() {
+        locationService.takeALocation()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +82,21 @@ class TaskFragment : Fragment() {
 
         binding.taskViewModel = taskViewModel
 
+        locationService = LocationService(activity!!) { currentLocation ->
+            val lcs = LocationCalculationService()
+            val center = Location("")
+            center.latitude = 59.9860
+            center.longitude = 30.178123
+            val minDist = lcs.calculateDistance(currentLocation, center)
 
+            resolveResult(minDist, lcs, center, currentLocation)
+
+            changeIndicatorPosition(minDist)
+        }
+
+       // scheduler = fixedRateTimer("locationCheck", period = 1000) {
+            coordinate()
+        //}
 
         return binding.root
     }
