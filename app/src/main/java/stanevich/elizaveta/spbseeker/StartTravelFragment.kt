@@ -21,7 +21,7 @@ class StartTravelFragment : Fragment() {
         binding.apply {
             tvStartTravel.setOnClickListener { view: View ->
                 Navigation.findNavController(view)
-                    .navigate(R.id.action_startTravelFragment_to_loginFragment)
+                    .navigate(R.id.action_startTravelFragment_to_taskFragment)
             }
 
             return binding.root

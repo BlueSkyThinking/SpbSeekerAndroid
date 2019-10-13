@@ -12,11 +12,8 @@
         android:label="StartTravelFragment"
         tools:layout="@layout/fragment_start_travel">
         <action
-            android:id="@+id/action_startTravelFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_startTravelFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            android:id="@+id/action_startTravelFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -45,4 +42,8 @@
         android:name="stanevich.elizaveta.spbseeker.login.AuthorizationFragment"
         android:label="AuthorizationFragment"
         tools:layout="@layout/fragment_authorization"/>
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="stanevich.elizaveta.spbseeker.TaskFragment"
+        android:label="TaskFragment" />
 </navigation>
