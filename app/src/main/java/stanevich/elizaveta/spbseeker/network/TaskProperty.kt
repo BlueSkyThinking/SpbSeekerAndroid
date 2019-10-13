@@ -15,7 +15,5 @@ data class TaskProperty (
     var orderNum: Long,
     var latitude: Double,
     var longitude: Double,
-    val createdDate: Date?,
-    val updatedDate: Date?,
     val travelId: Long?
 ) : Parcelable
