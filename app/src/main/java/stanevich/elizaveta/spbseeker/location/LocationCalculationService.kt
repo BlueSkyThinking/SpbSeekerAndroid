@@ -1,4 +1,4 @@
-package com.komdosh.spbseeker.service.location
+package stanevich.elizaveta.spbseeker.location
 
 import android.location.Location
 import kotlin.math.abs

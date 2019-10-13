@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.komdosh.spbseeker.service.location.LocationCalculationService
-import com.komdosh.spbseeker.service.location.LocationService
+import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_task.*
+import stanevich.elizaveta.spbseeker.R
 import stanevich.elizaveta.spbseeker.databinding.FragmentTaskBinding
+import stanevich.elizaveta.spbseeker.location.LocationCalculationService
+import stanevich.elizaveta.spbseeker.location.LocationService
 import java.util.*
-import kotlin.concurrent.fixedRateTimer
 
 class TaskFragment : Fragment() {
 
@@ -71,33 +72,40 @@ class TaskFragment : Fragment() {
 
         val binding = FragmentTaskBinding.inflate(inflater)
 
-        binding.lifecycleOwner = this
-
-        val application = requireNotNull(this.activity).application
-
-        val viewModelFactory = TaskViewModelFactory(application)
-
-        val taskViewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(TaskViewModel::class.java)
-
-        binding.taskViewModel = taskViewModel
-
-        locationService = LocationService(activity!!) { currentLocation ->
-            val lcs = LocationCalculationService()
-            val center = Location("")
-            center.latitude = 59.9860
-            center.longitude = 30.178123
-            val minDist = lcs.calculateDistance(currentLocation, center)
-
-            resolveResult(minDist, lcs, center, currentLocation)
-
-            changeIndicatorPosition(minDist)
+        binding.apply {
+            btnVectorBack.setOnClickListener { view: View ->
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_taskFragment_to_loginFragment)
+            }
         }
 
-       // scheduler = fixedRateTimer("locationCheck", period = 1000) {
-            coordinate()
-        //}
+            binding.lifecycleOwner = this
 
-        return binding.root
+            val application = requireNotNull(this.activity).application
+
+            val viewModelFactory = TaskViewModelFactory(application)
+
+            val taskViewModel =
+                ViewModelProviders.of(this, viewModelFactory).get(TaskViewModel::class.java)
+
+            binding.taskViewModel = taskViewModel
+
+            locationService = LocationService(activity!!) { currentLocation ->
+                val lcs = LocationCalculationService()
+                val center = Location("")
+                center.latitude = 59.9860
+                center.longitude = 30.178123
+                val minDist = lcs.calculateDistance(currentLocation, center)
+
+                resolveResult(minDist, lcs, center, currentLocation)
+
+                changeIndicatorPosition(minDist)
+            }
+
+            // scheduler = fixedRateTimer("locationCheck", period = 1000) {
+            coordinate()
+            //}
+
+            return binding.root
+        }
     }
-}

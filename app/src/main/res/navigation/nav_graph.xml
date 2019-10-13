@@ -12,8 +12,8 @@
         android:label="StartTravelFragment"
         tools:layout="@layout/fragment_start_travel">
         <action
-            android:id="@+id/action_startTravelFragment_to_taskFragment"
-            app:destination="@id/taskFragment" />
+            android:id="@+id/action_startTravelFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_loginFragment_to_authorizationFragment"
             app:destination="@id/authorizationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -45,5 +48,9 @@
     <fragment
         android:id="@+id/taskFragment"
         android:name="stanevich.elizaveta.spbseeker.task.TaskFragment"
-        android:label="TaskFragment" />
+        android:label="TaskFragment" >
+        <action
+            android:id="@+id/action_taskFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
