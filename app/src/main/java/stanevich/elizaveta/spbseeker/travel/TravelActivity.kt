@@ -2,24 +2,26 @@ package stanevich.elizaveta.spbseeker.travel
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
+import androidx.databinding.DataBindingUtil
 import stanevich.elizaveta.spbseeker.R
+import stanevich.elizaveta.spbseeker.databinding.ActivityTravelBinding
 import stanevich.elizaveta.spbseeker.travel.adapter.SliderAdapter
 
 class TravelActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_travel)
+        val binding: ActivityTravelBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_travel)
 
+        val sliderAdapter = SliderAdapter(supportFragmentManager)
+        binding.apply {
+            viewpager.apply {
+                adapter = sliderAdapter
+                currentItem = 1
+            }
+            tabDots.setupWithViewPager(viewpager, true)
+        }
 
-        val adapter = SliderAdapter(supportFragmentManager)
-        val viewPager = findViewById<ViewPager>(R.id.viewpager)
-        viewPager.adapter = adapter
-        viewPager.currentItem = 1
-
-        val tabLayout = findViewById<TabLayout>(R.id.tabDots)
-        tabLayout.setupWithViewPager(viewPager, true)
     }
 }
