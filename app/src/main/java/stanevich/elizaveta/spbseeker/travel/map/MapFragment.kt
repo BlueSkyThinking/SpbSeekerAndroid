@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import stanevich.elizaveta.spbseeker.R
 import stanevich.elizaveta.spbseeker.databinding.FragmentMapBinding
 
-class ARFragment : Fragment() {
+class MapFragment : Fragment() {
 
     private val mapViewModel: MapFragmentViewModel by lazy {
         ViewModelProviders.of(this).get(MapFragmentViewModel::class.java)
