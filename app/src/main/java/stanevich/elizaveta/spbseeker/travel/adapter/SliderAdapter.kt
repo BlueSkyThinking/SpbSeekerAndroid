@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import stanevich.elizaveta.spbseeker.travel.ar.ARFragment
-import stanevich.elizaveta.spbseeker.travel.map.FragmentMap
+import stanevich.elizaveta.spbseeker.travel.map.MapFragment
 import stanevich.elizaveta.spbseeker.travel.travel.TravelFragment
 
 class SliderAdapter(private val fm: FragmentManager) :
@@ -15,7 +15,7 @@ class SliderAdapter(private val fm: FragmentManager) :
         return when (position) {
             0 -> ARFragment()
             1 -> TravelFragment()
-            else -> FragmentMap()
+            else -> MapFragment()
         }
 
     }
