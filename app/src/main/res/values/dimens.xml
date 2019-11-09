@@ -2,16 +2,16 @@
 <resources>
 
 <!--    MenuFragment-->
-    <dimen name="square_one_width">60dp</dimen>
+    <dimen name="square_one_width">70dp</dimen>
     <dimen name="square_two_width">85dp</dimen>
     <dimen name="square_three_width">50dp</dimen>
     <dimen name="square_four_width">95dp</dimen>
     <dimen name="square_one_height">410dp</dimen>
-    <dimen name="square_two_height">370dp</dimen>
-    <dimen name="square_three_height">280dp</dimen>
-    <dimen name="square_four_height">130dp</dimen>
-    <dimen name="fab_marginStart">20dp</dimen>
+    <dimen name="square_two_height">355dp</dimen>
+    <dimen name="square_three_height">260dp</dimen>
+    <dimen name="square_four_height">120dp</dimen>
+    <dimen name="fab_marginStart">10dp</dimen>
     <dimen name="category_text_size">16sp</dimen>
     <dimen name="category_text_marginStart">12dp</dimen>
-    <dimen name="image_maxSize">40dp</dimen>
+    <dimen name="image_maxSize">35dp</dimen>
 </resources>
