@@ -43,9 +43,9 @@ class TravelFragment : Fragment() {
 
         binding.travelViewModel = travelViewModel
 
-        binding.text.setOnClickListener {
-            showBottomSheetDialogFragment()
-        }
+//        binding.text.setOnClickListener {
+//            showBottomSheetDialogFragment()
+//        }
 
 
 
