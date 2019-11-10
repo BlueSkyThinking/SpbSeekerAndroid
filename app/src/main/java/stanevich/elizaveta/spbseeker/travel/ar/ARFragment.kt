@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import stanevich.elizaveta.spbseeker.R
 import stanevich.elizaveta.spbseeker.databinding.FragmentArBinding
 
+
 class ARFragment : Fragment() {
 
     private val arViewModel: ARFragmentViewModel by lazy {
@@ -31,7 +32,6 @@ class ARFragment : Fragment() {
         binding.lifecycleOwner = this
 
         binding.arViewModel = arViewModel
-
         return binding.root
     }
 }

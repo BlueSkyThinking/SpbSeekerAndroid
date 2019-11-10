@@ -8,20 +8,27 @@ import stanevich.elizaveta.spbseeker.travel.ar.ARFragment
 import stanevich.elizaveta.spbseeker.travel.map.MapFragment
 import stanevich.elizaveta.spbseeker.travel.travel.TravelFragment
 
-class SliderAdapter(private val fm: FragmentManager) :
+class SliderAdapter(fm: FragmentManager, private val arAvailable: Boolean) :
     FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int): Fragment {
-        return when (position) {
-            0 -> ARFragment()
-            1 -> TravelFragment()
-            else -> MapFragment()
+        if (arAvailable) {
+            return when (position) {
+                0 -> ARFragment()
+                1 -> TravelFragment()
+                else -> MapFragment()
+            }
+        } else {
+            return when (position) {
+                0 -> TravelFragment()
+                else -> MapFragment()
+            }
         }
 
     }
 
     override fun getCount(): Int {
-        return 3
+        return if (arAvailable) 3 else 2
     }
 
 }

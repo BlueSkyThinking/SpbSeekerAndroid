@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.ar.core.ArCoreApk
 import stanevich.elizaveta.spbseeker.R
 import stanevich.elizaveta.spbseeker.databinding.ActivityTravelBinding
 import stanevich.elizaveta.spbseeker.travel.adapter.SliderAdapter
@@ -17,15 +18,23 @@ class TravelActivity : AppCompatActivity() {
         val binding: ActivityTravelBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_travel)
 
-        val sliderAdapter = SliderAdapter(supportFragmentManager)
+        val arAvailable = checkArAvailability()
+        val sliderAdapter = SliderAdapter(supportFragmentManager, arAvailable)
         binding.apply {
             viewpager.apply {
                 adapter = sliderAdapter
-                currentItem = 1
+                currentItem = if (arAvailable) 1 else 0
             }
             tabDots.setupWithViewPager(viewpager, true)
         }
 //        showBottomSheetDialogFragment()
+
+    }
+
+    private fun checkArAvailability(): Boolean {
+        val availability = ArCoreApk.getInstance().checkAvailability(this)
+
+        return availability.isSupported
 
     }
 
