@@ -97,14 +97,14 @@ class ARRestoreFragment : ArFragment() {
 
         MaterialFactory.makeOpaqueWithTexture(this.activity, texture)
             .thenAccept { material ->
-
                 val model = ShapeFactory.makeCube(
                     Vector3(leftToRight.length(), 0.001f, bottomToTop.length()),
                     Vector3.zero(), material
                 )
+                model.isShadowCaster = false
+                model.isShadowReceiver = false
 
                 currentAnchor = anchorNode
-
                 val node = TransformableNode(transformationSystem)
 
                 node.localRotation = Quaternion.axisAngle(Vector3.up(), 0f)
