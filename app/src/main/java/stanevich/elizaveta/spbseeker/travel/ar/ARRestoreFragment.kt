@@ -60,7 +60,7 @@ class ARRestoreFragment : ArFragment() {
             }
 
             if (anchorsList.size == 6) {
-                currentAnchor!!.anchor!!.detach()
+                currentAnchor?.anchor?.detach()
                 anchorsList.clear()
             } else if (anchorsList.size == 5) {
                 val sampler = Texture.Sampler.builder()
