@@ -23,8 +23,6 @@
             app:tabIndicatorHeight="0dp"
             app:tabPaddingStart="0dp" />
 
-        <include layout="@layout/bottom_sheet_layout" />
-
     </RelativeLayout>
 
 </layout>
