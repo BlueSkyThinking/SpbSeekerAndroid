@@ -1,4 +1,4 @@
-package stanevich.elizaveta.spbseeker.menu
+package stanevich.elizaveta.spbseeker
 
 import android.content.Intent
 import android.os.Bundle
