@@ -14,4 +14,8 @@
     <dimen name="category_text_size">16sp</dimen>
     <dimen name="category_text_marginStart">12dp</dimen>
     <dimen name="image_maxSize">35dp</dimen>
+
+    <!--    TravelFragment-->
+    <dimen name="background_round_indicator_margin">16dp</dimen>
+    <dimen name="indicator_diagram_layout_width">250dp</dimen>
 </resources>

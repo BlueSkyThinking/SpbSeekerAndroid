@@ -85,7 +85,7 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_trip"
             style="@style/MenuFloatingActionButton"
-            android:src="@drawable/menu_ic_trip"
+            android:src="@drawable/ic_eventssvg"
             app:layout_constraintBottom_toTopOf="@id/tv_4"
             app:layout_constraintEnd_toEndOf="@id/tv_4"
             app:layout_constraintStart_toEndOf="@id/tv_3"
@@ -115,7 +115,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_coffee"
-
+            android:src="@drawable/ic_coffeesvg"
             style="@style/MenuFloatingActionButton"
             app:layout_constraintEnd_toEndOf="@id/tv_3"
             app:layout_constraintStart_toEndOf="@id/tv_2"
@@ -149,6 +149,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_food"
+            android:src="@drawable/ic_food"
             style="@style/MenuFloatingActionButton"
             android:layout_marginStart="@dimen/fab_marginStart"
             app:layout_constraintBottom_toBottomOf="@id/tv_4"

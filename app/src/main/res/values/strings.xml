@@ -12,4 +12,6 @@
     <string name="menu_text_events">Events</string>
     <string name="menu_text_coffee">Coffee</string>
     <string name="text_place_name">Александрия</string>
+    <string name="text_start">start</string>
+    <string name="text_finish">finish</string>
 </resources>
